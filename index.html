@@ -14,8 +14,6 @@
 
     .background {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       background-image: url('images/foto.jpg');
@@ -26,8 +24,6 @@
 
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       background: rgba(255,255,255,0.7);
@@ -36,7 +32,7 @@
 
     .wrap {
       max-width: 900px;
-      margin: 0 auto;
+      margin: auto;
       padding: 40px 20px;
     }
 
@@ -50,7 +46,6 @@
 
     .hero {
       text-align: center;
-      padding: 40px 20px;
     }
 
     h1 {
@@ -59,7 +54,6 @@
     }
 
     .subtitle {
-      font-size: 18px;
       color: #5f504a;
     }
 
@@ -73,7 +67,7 @@
 
     button {
       margin-top: 15px;
-      padding: 12px 20px;
+      padding: 12px;
       border-radius: 999px;
       border: none;
       background: #3d2f2a;
@@ -83,11 +77,6 @@
 
     .hidden {
       display: none;
-    }
-
-    .iban {
-      font-weight: bold;
-      word-break: break-all;
     }
   </style>
 </head>
@@ -99,20 +88,18 @@
 
 <div class="wrap">
 
-  <!-- HERO -->
   <section class="card hero">
     <h1>Luca & Giulia</h1>
     <p class="subtitle">Sabato 12 Settembre 2026 · Villa delle Rose</p>
     <p>Non vediamo l’ora di festeggiare con voi ❤️</p>
   </section>
 
-  <!-- FORM -->
   <section class="card">
     <h2>Conferma partecipazione</h2>
 
     <form action="https://formspree.io/f/mwvaovek" method="POST">
 
-      <!-- Redirect dopo invio -->
+      <!-- redirect corretto -->
       <input type="hidden" name="_redirect" value="https://marcofilippetti0-web.github.io/matrimonio/grazie.html">
 
       <label>Nome e cognome</label>
@@ -136,35 +123,27 @@
         </select>
 
         <div id="allergyDetails" class="hidden">
-          <label>Specifica allergie/intolleranze</label>
+          <label>Specifica allergie</label>
           <textarea name="dettagli_allergie"></textarea>
         </div>
       </div>
 
       <button type="submit">Invia conferma</button>
-    </form>
-  </section>
 
-  <!-- IBAN -->
-  <section class="card">
-    <h2>Lista nozze</h2>
-    <p>Il regalo più bello è la vostra presenza ❤️</p>
-    <p class="iban">IBAN: IT00X000000000000000000000</p>
+    </form>
   </section>
 
 </div>
 
 <script>
 function toggleGuests() {
-  const presenza = document.getElementById('presenza').value;
   document.getElementById('guestSection').style.display =
-    presenza === 'si' ? 'block' : 'none';
+    document.getElementById('presenza').value === 'si' ? 'block' : 'none';
 }
 
 function toggleAllergies() {
-  const allergie = document.getElementById('allergie').value;
   document.getElementById('allergyDetails').style.display =
-    allergie === 'si' ? 'block' : 'none';
+    document.getElementById('allergie').value === 'si' ? 'block' : 'none';
 }
 </script>
 
