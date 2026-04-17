@@ -106,17 +106,14 @@
     <p>Non vediamo l’ora di festeggiare con voi ❤️</p>
   </section>
 
-  <!-- FORM NETLIFY -->
+  <!-- FORM -->
   <section class="card">
     <h2>Conferma partecipazione</h2>
 
-    <form name="rsvp"
-          method="POST"
-          data-netlify="true"
-          netlify>
+    <form action="https://formspree.io/f/mwvaovek" method="POST">
 
-      <!-- OBBLIGATORIO PER NETLIFY -->
-      <input type="hidden" name="form-name" value="rsvp" />
+      <!-- Redirect dopo invio -->
+      <input type="hidden" name="_redirect" value="https://marcofilippetti0-web.github.io/matrimonio/grazie.html">
 
       <label>Nome e cognome</label>
       <input type="text" name="nome" required>
