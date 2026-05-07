@@ -96,4 +96,406 @@
 
     h1{
       font-size:82px;
+      font-weight:300;
+      letter-spacing:6px;
+      margin-bottom:20px;
+      text-shadow:0 5px 25px rgba(0,0,0,.35);
+    }
+
+    .date{
+      font-size:24px;
+      letter-spacing:3px;
+      margin-bottom:30px;
+    }
+
+    .hero-text{
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      font-size:19px;
+      opacity:.95;
+    }
+
+    .hero-btn{
+      display:inline-block;
+      margin-top:50px;
+      padding:16px 32px;
+      border-radius:999px;
+      background:white;
+      color:#222;
+      text-decoration:none;
+      font-weight:bold;
+      transition:.3s;
+    }
+
+    .hero-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .mini-card{
+      background:rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:30px;
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    h2{
+      font-size:38px;
+      font-weight:300;
+      margin-bottom:30px;
+      text-align:center;
+    }
+
+    h3{
+      margin-bottom:15px;
+      font-size:24px;
+      font-weight:normal;
+    }
+
+    p{
+      line-height:1.8;
+    }
+
+    iframe{
+      width:100%;
+      height:250px;
+      border:none;
+      border-radius:20px;
+      margin-top:20px;
+    }
+
+    /* FORM */
+    form{
+      max-width:700px;
+      margin:auto;
+    }
+
+    label{
+      display:block;
+      margin-top:20px;
+      margin-bottom:8px;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:14px;
+      background:rgba(255,255,255,.92);
+      color:#333;
+      font-size:15px;
+      outline:none;
+    }
+
+    textarea{
+      min-height:100px;
+      resize:vertical;
+    }
+
+    button{
+      width:100%;
+      margin-top:30px;
+      padding:16px;
+      border:none;
+      border-radius:999px;
+      background:white;
+      color:#222;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+      background:#f2f2f2;
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    .footer{
+      text-align:center;
+      padding:40px;
+      opacity:.8;
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:52px;
+      }
+
+      .glass{
+        padding:30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <div class="wrapper">
+
+    <!-- HERO -->
+    <section class="panel">
+
+      <div class="glass hero">
+
+        <h1>Marco & Martina</h1>
+
+        <div class="date">
+          13 Settembre 2026
+        </div>
+
+        <p class="hero-text">
+          Con immensa gioia vi invitiamo a condividere con noi
+          il giorno più bello della nostra vita.
+        </p>
+
+        <a href="#evento" class="hero-btn">
+          Scopri il matrimonio
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- RSVP -->
+    <section class="panel">
+
+      <div class="glass">
+
+        <h2>Conferma Partecipazione</h2>
+
+        <form action="https://formspree.io/f/mwvaovek" method="POST">
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://marcofilippetti0-web.github.io/matrimonio/grazie.html"
+          >
+
+          <label>Nome e Cognome</label>
+          <input type="text" name="nome" required>
+
+          <label>Parteciperai?</label>
+
+          <select
+            name="presenza"
+            id="presenza"
+            onchange="toggleGuests()"
+            required
+          >
+            <option value="">Seleziona</option>
+            <option value="si">Sì</option>
+            <option value="no">No</option>
+          </select>
+
+          <div id="guestSection" class="hidden">
+
+            <label>Quanti sarete?</label>
+            <input type="number" name="numero_persone" min="1">
+
+            <label>Allergie o intolleranze?</label>
+
+            <select
+              name="allergie"
+              id="allergie"
+              onchange="toggleAllergies()"
+            >
+              <option value="no">No</option>
+              <option value="si">Sì</option>
+            </select>
+
+            <div id="allergyDetails" class="hidden">
+
+              <label>
+                Specifica eventuali allergie/intolleranze
+              </label>
+
+              <textarea
+                name="dettagli_allergie"
+              ></textarea>
+
+            </div>
+
+          </div>
+
+          <button type="submit">
+            Invia Conferma
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- EVENTO -->
+    <section class="panel" id="evento">
+
+      <div class="glass">
+
+        <h2>La Nostra Giornata</h2>
+
+        <div class="grid">
+
+          <div class="mini-card">
+            <h3>⛪ Cerimonia</h3>
+            <p>
+              Chiesa di Falconara Alta<br>
+              Ore 15:00
+            </p>
+
+            <iframe
+              src="https://www.google.com/maps?q=Parrocchia+Visitazione+della+Beata+Vergine+Maria+Falconara+Alta&output=embed"
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="mini-card">
+            <h3>🏛 Ricevimento</h3>
+            <p>
+              Villa Gazzani<br>
+              Aperitivo, cena e festa
+            </p>
+
+            <iframe
+              src="https://www.google.com/maps?q=Villa+Gazzani&output=embed"
+              loading="lazy">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- RSVP -->
+    <section class="panel">
+
+      <div class="glass">
+
+        <h2>Conferma Partecipazione</h2>
+
+        <form action="https://formspree.io/f/mwvaovek" method="POST">
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://marcofilippetti0-web.github.io/matrimonio/grazie.html"
+          >
+
+          <label>Nome e Cognome</label>
+          <input type="text" name="nome" required>
+
+          <label>Parteciperai?</label>
+
+          <select
+            name="presenza"
+            id="presenza"
+            onchange="toggleGuests()"
+            required
+          >
+            <option value="">Seleziona</option>
+            <option value="si">Sì</option>
+            <option value="no">No</option>
+          </select>
+
+          <div id="guestSection" class="hidden">
+
+            <label>Quanti sarete?</label>
+            <input type="number" name="numero_persone" min="1">
+
+            <label>Allergie o intolleranze?</label>
+
+            <select
+              name="allergie"
+              id="allergie"
+              onchange="toggleAllergies()"
+            >
+              <option value="no">No</option>
+              <option value="si">Sì</option>
+            </select>
+
+            <div id="allergyDetails" class="hidden">
+
+              <label>
+                Specifica eventuali allergie/intolleranze
+              </label>
+
+              <textarea
+                name="dettagli_allergie"
+              ></textarea>
+
+            </div>
+
+          </div>
+
+          <button type="submit">
+            Invia Conferma
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      Marco & Martina ❤️
+    </div>
+
+  </div>
+
+  <script>
+
+    function toggleGuests(){
+
+      const presenza =
+        document.getElementById('presenza').value;
+
+      document.getElementById('guestSection').style.display =
+        presenza === 'si'
+        ? 'block'
+        : 'none';
+    }
+
+    function toggleAllergies(){
+
+      const allergie =
+        document.getElementById('allergie').value;
+
+      document.getElementById('allergyDetails').style.display =
+        allergie === 'si'
+        ? 'block'
+        : 'none';
+    }
+
+  </script>
+
+</body>
 </html>
