@@ -90,6 +90,12 @@
       opacity:.95;
     }
 
+    .countdown{
+      margin-top:25px;
+      font-size:16px;
+      opacity:.8;
+    }
+
     a{
       display:inline-block;
       margin-top:40px;
@@ -128,9 +134,11 @@
 
 <body>
 
+  <!-- SFONDO -->
   <div class="background"></div>
   <div class="overlay"></div>
 
+  <!-- CONTENUTO -->
   <div class="box">
 
     <h1>Grazie ❤️</h1>
@@ -140,11 +148,27 @@
       Non vediamo l’ora di festeggiare insieme a voi.
     </p>
 
+    <div class="countdown">
+      Verrete reindirizzati automaticamente tra 10 secondi...
+    </div>
+
     <a href="index.html">
-      Torna al sito
+      Torna subito al sito
     </a>
 
   </div>
+
+  <!-- REDIRECT AUTOMATICO -->
+  <script>
+
+    setTimeout(function(){
+
+      window.location.href =
+        "https://marcofilippetti0-web.github.io/matrimonio/";
+
+    }, 10000);
+
+  </script>
 
 </body>
 </html>
