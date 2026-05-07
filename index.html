@@ -106,7 +106,19 @@
     .date{
       font-size:24px;
       letter-spacing:3px;
-      margin-bottom:30px;
+      margin-bottom:20px;
+    }
+
+    .countdown{
+      margin:25px auto 35px;
+      display:inline-block;
+      padding:14px 26px;
+      border-radius:999px;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(8px);
+      font-size:18px;
+      letter-spacing:1px;
     }
 
     .hero-text{
@@ -268,6 +280,10 @@
 
         <div class="date">
           13 Settembre 2026
+        </div>
+
+        <div class="countdown" id="countdown">
+          Calcolo del conto alla rovescia...
         </div>
 
         <p class="hero-text">
@@ -436,25 +452,76 @@
         : 'none';
     }
 
+    function updateCountdown(){
+
+      const weddingDate =
+        new Date("2026-09-13T15:00:00").getTime();
+
+      const now = new Date().getTime();
+
+      const distance = weddingDate - now;
+
+      const countdown =
+        document.getElementById("countdown");
+
+      if(distance <= 0){
+
+        countdown.innerHTML =
+          "Oggi è il grande giorno ❤️";
+
+        return;
+      }
+
+      const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours =
+        Math.floor((distance / (1000 * 60 * 60)) % 24);
+
+      const minutes =
+        Math.floor((distance / (1000 * 60)) % 60);
+
+      countdown.innerHTML =
+        "Mancano " +
+        days +
+        " giorni, " +
+        hours +
+        " ore e " +
+        minutes +
+        " minuti";
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 60000);
+
     document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
 
       e.preventDefault();
 
       const form = e.target;
+
       const data = new FormData(form);
-      const button = form.querySelector("button");
+
+      const button =
+        form.querySelector("button");
 
       button.disabled = true;
-      button.textContent = "Invio in corso...";
+
+      button.textContent =
+        "Invio in corso...";
 
       try {
 
         const response = await fetch(form.action, {
+
           method: "POST",
           body: data,
+
           headers: {
             "Accept": "application/json"
           }
+
         });
 
         if (response.ok) {
@@ -467,7 +534,9 @@
           alert("Si è verificato un errore. Riprova più tardi.");
 
           button.disabled = false;
-          button.textContent = "Invia Conferma";
+
+          button.textContent =
+            "Invia Conferma";
         }
 
       } catch (error) {
@@ -475,7 +544,9 @@
         alert("Errore di connessione. Riprova più tardi.");
 
         button.disabled = false;
-        button.textContent = "Invia Conferma";
+
+        button.textContent =
+          "Invia Conferma";
       }
 
     });
