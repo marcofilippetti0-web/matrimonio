@@ -1,9 +1,11 @@
+# Nuovo INDEX.HTML — Layout elegante a schermate
+
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marco & Martina</title>
 
   <style>
@@ -14,11 +16,15 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       font-family: Arial, sans-serif;
-      overflow-x:hidden;
+      background:#000;
       color:white;
-      background:black;
+      overflow-x:hidden;
     }
 
     /* SFONDO */
@@ -28,37 +34,55 @@
       background-image:url('images/foto.jpg');
       background-size:cover;
       background-position:center;
-      transform:scale(1.05);
-      animation:zoomBg 18s ease-in-out infinite alternate;
       z-index:-3;
+      transform:scale(1.05);
+      animation:zoom 18s ease-in-out infinite alternate;
     }
 
-    @keyframes zoomBg{
+    @keyframes zoom{
       from{
         transform:scale(1.05);
       }
       to{
-        transform:scale(1.15);
+        transform:scale(1.12);
       }
     }
 
-    /* OVERLAY */
     .overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.45);
+      background:rgba(0,0,0,.45);
       z-index:-2;
     }
 
-    /* HERO */
-    .intro{
-      height:100vh;
+    /* WRAPPER */
+    .wrapper{
+      width:100%;
+    }
+
+    /* SCHERMATE */
+    .panel{
+      min-height:100vh;
       display:flex;
-      flex-direction:column;
-      justify-content:center;
       align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .glass{
+      width:100%;
+      max-width:1100px;
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:30px;
+      padding:50px;
+      box-shadow:0 10px 40px rgba(0,0,0,.25);
+    }
+
+    /* HERO */
+    .hero{
       text-align:center;
-      padding:20px;
       animation:fadeIn 2s ease;
     }
 
@@ -74,80 +98,92 @@
     }
 
     h1{
-      font-size:72px;
+      font-size:82px;
       font-weight:300;
-      letter-spacing:4px;
+      letter-spacing:6px;
       margin-bottom:20px;
-      text-shadow:0 4px 20px rgba(0,0,0,.4);
+      text-shadow:0 5px 25px rgba(0,0,0,.35);
     }
 
     .date{
-      font-size:22px;
-      letter-spacing:2px;
-      margin-bottom:20px;
+      font-size:24px;
+      letter-spacing:3px;
+      margin-bottom:30px;
     }
 
-    .subtitle{
+    .hero-text{
       max-width:700px;
+      margin:auto;
       line-height:1.8;
-      font-size:18px;
+      font-size:19px;
       opacity:.95;
     }
 
-    .scroll{
-      margin-top:60px;
-      font-size:14px;
-      letter-spacing:3px;
-      opacity:.8;
-      animation:bounce 2s infinite;
+    .hero-btn{
+      display:inline-block;
+      margin-top:50px;
+      padding:16px 32px;
+      border-radius:999px;
+      background:white;
+      color:#222;
+      text-decoration:none;
+      font-weight:bold;
+      transition:.3s;
     }
 
-    @keyframes bounce{
-      0%,100%{
-        transform:translateY(0);
-      }
-      50%{
-        transform:translateY(8px);
-      }
+    .hero-btn:hover{
+      transform:translateY(-2px);
     }
 
-    /* SEZIONI */
-    .section{
-      padding:80px 20px;
-      display:flex;
-      justify-content:center;
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
     }
 
-    .card{
-      width:100%;
-      max-width:700px;
-      background:rgba(255,255,255,0.12);
-      backdrop-filter:blur(12px);
-      border:1px solid rgba(255,255,255,0.15);
-      border-radius:28px;
-      padding:40px;
-      box-shadow:0 10px 40px rgba(0,0,0,.25);
+    .mini-card{
+      background:rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:30px;
+      border:1px solid rgba(255,255,255,.12);
     }
 
-    .card h2{
-      text-align:center;
-      margin-bottom:30px;
-      font-size:34px;
+    h2{
+      font-size:38px;
       font-weight:300;
+      margin-bottom:30px;
+      text-align:center;
     }
 
-    .timeline{
-      text-align:center;
-      line-height:2;
-      margin-bottom:40px;
-      font-size:17px;
+    h3{
+      margin-bottom:15px;
+      font-size:24px;
+      font-weight:normal;
+    }
+
+    p{
+      line-height:1.8;
+    }
+
+    iframe{
+      width:100%;
+      height:250px;
+      border:none;
+      border-radius:20px;
+      margin-top:20px;
+    }
+
+    /* FORM */
+    form{
+      max-width:700px;
+      margin:auto;
     }
 
     label{
       display:block;
       margin-top:20px;
       margin-bottom:8px;
-      font-size:15px;
     }
 
     input,
@@ -157,10 +193,10 @@
       padding:14px;
       border:none;
       border-radius:14px;
-      font-size:15px;
-      outline:none;
       background:rgba(255,255,255,.92);
       color:#333;
+      font-size:15px;
+      outline:none;
     }
 
     textarea{
@@ -177,9 +213,9 @@
       background:white;
       color:#222;
       font-size:16px;
+      font-weight:bold;
       cursor:pointer;
       transition:.3s;
-      font-weight:bold;
     }
 
     button:hover{
@@ -191,37 +227,25 @@
       display:none;
     }
 
-    .map-title{
-      margin-bottom:15px;
-      font-size:22px;
-    }
-
-    .map-text{
-      margin-bottom:20px;
-      line-height:1.8;
-      opacity:.95;
-    }
-
-    iframe{
-      border-radius:20px;
-      margin-bottom:40px;
-    }
-
     .footer{
       text-align:center;
-      padding:40px 20px 80px;
-      opacity:.85;
+      padding:40px;
+      opacity:.8;
       font-size:14px;
     }
 
-    @media(max-width:768px){
+    @media(max-width:900px){
 
-      h1{
-        font-size:48px;
+      .grid{
+        grid-template-columns:1fr;
       }
 
-      .card{
-        padding:28px;
+      h1{
+        font-size:52px;
+      }
+
+      .glass{
+        padding:30px;
       }
 
     }
@@ -231,173 +255,152 @@
 
 <body>
 
-  <!-- SFONDO -->
   <div class="background"></div>
   <div class="overlay"></div>
 
-  <!-- HERO -->
-  <section class="intro">
+  <div class="wrapper">
 
-    <h1>Marco & Martina</h1>
+    <!-- HERO -->
+    <section class="panel">
 
-    <div class="date">
-      13 Settembre 2026
-    </div>
+      <div class="glass hero">
 
-    <p class="subtitle">
-      Con grande gioia vi invitiamo a condividere con noi
-      il giorno più bello della nostra vita.
-    </p>
+        <h1>Marco & Martina</h1>
 
-    <div class="scroll">
-      SCORRI
-    </div>
+        <div class="date">
+          13 Settembre 2026
+        </div>
 
-  </section>
+        <p class="hero-text">
+          Con immensa gioia vi invitiamo a condividere con noi
+          il giorno più bello della nostra vita.
+        </p>
 
-  <!-- TIMELINE -->
-  <section class="section">
+        <a href="#evento" class="hero-btn">
+          Scopri il matrimonio
+        </a>
 
-    <div class="card">
-
-      <h2>La Nostra Giornata</h2>
-
-      <div class="timeline">
-        ⛪ 15:00 · Cerimonia<br>
-        🥂 18:00 · Aperitivo<br>
-        🍽 20:00 · Cena e Festa
       </div>
 
-    </div>
+    </section>
 
-  </section>
+    <!-- EVENTO -->
+    <section class="panel" id="evento">
 
-  <!-- LOCATION -->
-  <section class="section">
+      <div class="glass">
 
-    <div class="card">
+        <h2>La Nostra Giornata</h2>
 
-      <h2>Location</h2>
+        <div class="grid">
 
-      <h3 class="map-title">
-        ⛪ Cerimonia
-      </h3>
+          <div class="mini-card">
+            <h3>⛪ Cerimonia</h3>
+            <p>
+              Chiesa di Falconara Alta<br>
+              Ore 15:00
+            </p>
 
-      <p class="map-text">
-        Chiesa di Falconara Alta<br>
-        Parrocchia Visitazione della Beata Vergine Maria
-      </p>
+            <iframe
+              src="https://www.google.com/maps?q=Parrocchia+Visitazione+della+Beata+Vergine+Maria+Falconara+Alta&output=embed"
+              loading="lazy">
+            </iframe>
+          </div>
 
-      <iframe
-        src="https://www.google.com/maps?q=Parrocchia+Visitazione+della+Beata+Vergine+Maria+Falconara+Alta&output=embed"
-        width="100%"
-        height="300"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
+          <div class="mini-card">
+            <h3>🏛 Ricevimento</h3>
+            <p>
+              Villa Gazzani<br>
+              Aperitivo, cena e festa
+            </p>
 
-      <h3 class="map-title">
-        🏛 Ricevimento
-      </h3>
-
-      <p class="map-text">
-        Villa Gazzani
-      </p>
-
-      <iframe
-        src="https://www.google.com/maps?q=Villa+Gazzani&output=embed"
-        width="100%"
-        height="300"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
-
-    </div>
-
-  </section>
-
-  <!-- RSVP -->
-  <section class="section">
-
-    <div class="card">
-
-      <h2>Conferma Partecipazione</h2>
-
-      <form action="https://formspree.io/f/mwvaovek" method="POST">
-
-        <!-- Redirect -->
-        <input
-          type="hidden"
-          name="_next"
-          value="https://marcofilippetti0-web.github.io/matrimonio/grazie.html"
-        >
-
-        <label>Nome e Cognome</label>
-        <input type="text" name="nome" required>
-
-        <label>Parteciperai?</label>
-
-        <select
-          name="presenza"
-          id="presenza"
-          onchange="toggleGuests()"
-          required
-        >
-          <option value="">Seleziona</option>
-          <option value="si">Sì</option>
-          <option value="no">No</option>
-        </select>
-
-        <div id="guestSection" class="hidden">
-
-          <label>Quanti sarete?</label>
-
-          <input
-            type="number"
-            name="numero_persone"
-            min="1"
-          >
-
-          <label>Allergie o intolleranze?</label>
-
-          <select
-            name="allergie"
-            id="allergie"
-            onchange="toggleAllergies()"
-          >
-            <option value="no">No</option>
-            <option value="si">Sì</option>
-          </select>
-
-          <div id="allergyDetails" class="hidden">
-
-            <label>
-              Specifica eventuali allergie/intolleranze
-            </label>
-
-            <textarea
-              name="dettagli_allergie"
-            ></textarea>
-
+            <iframe
+              src="https://www.google.com/maps?q=Villa+Gazzani&output=embed"
+              loading="lazy">
+            </iframe>
           </div>
 
         </div>
 
-        <button type="submit">
-          Invia Conferma
-        </button>
+      </div>
 
-      </form>
+    </section>
 
+    <!-- RSVP -->
+    <section class="panel">
+
+      <div class="glass">
+
+        <h2>Conferma Partecipazione</h2>
+
+        <form action="https://formspree.io/f/mwvaovek" method="POST">
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://marcofilippetti0-web.github.io/matrimonio/grazie.html"
+          >
+
+          <label>Nome e Cognome</label>
+          <input type="text" name="nome" required>
+
+          <label>Parteciperai?</label>
+
+          <select
+            name="presenza"
+            id="presenza"
+            onchange="toggleGuests()"
+            required
+          >
+            <option value="">Seleziona</option>
+            <option value="si">Sì</option>
+            <option value="no">No</option>
+          </select>
+
+          <div id="guestSection" class="hidden">
+
+            <label>Quanti sarete?</label>
+            <input type="number" name="numero_persone" min="1">
+
+            <label>Allergie o intolleranze?</label>
+
+            <select
+              name="allergie"
+              id="allergie"
+              onchange="toggleAllergies()"
+            >
+              <option value="no">No</option>
+              <option value="si">Sì</option>
+            </select>
+
+            <div id="allergyDetails" class="hidden">
+
+              <label>
+                Specifica eventuali allergie/intolleranze
+              </label>
+
+              <textarea
+                name="dettagli_allergie"
+              ></textarea>
+
+            </div>
+
+          </div>
+
+          <button type="submit">
+            Invia Conferma
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      Marco & Martina ❤️
     </div>
 
-  </section>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    Marco & Martina ❤️
   </div>
 
   <script>
@@ -428,3 +431,23 @@
 
 </body>
 </html>
+```
+
+# Come aggiornare
+
+1. Vai su GitHub
+2. Apri `index.html`
+3. Clicca ✏️ Edit
+4. Seleziona tutto
+5. Incolla il nuovo codice
+6. Commit changes
+7. Aspetta 30 secondi
+8. Aggiorna il sito
+
+Ora avrai:
+
+* Hero iniziale elegante
+* Schermate separate tipo experience premium
+* Sezione location in due colonne
+* Form elegante dedicato
+* Navigazione più moderna e meno “pagina lunga classica”
