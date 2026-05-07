@@ -2,39 +2,106 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Grazie ❤️</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 100px;
-      background: #f8f5f2;
-      color: #3d2f2a;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    h1 {
-      font-size: 42px;
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      font-family:Arial, sans-serif;
+      color:white;
+      overflow:hidden;
     }
 
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      text-decoration: none;
-      background: #3d2f2a;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 20px;
+    .background{
+      position:fixed;
+      inset:0;
+      background-image:url('images/foto.jpg');
+      background-size:cover;
+      background-position:center;
+      z-index:-2;
+      transform:scale(1.1);
     }
+
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.5);
+      z-index:-1;
+    }
+
+    .box{
+      animation:fadeIn 1.5s ease;
+      padding:30px;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    h1{
+      font-size:58px;
+      margin-bottom:20px;
+      font-weight:300;
+    }
+
+    p{
+      font-size:20px;
+      line-height:1.7;
+    }
+
+    a{
+      display:inline-block;
+      margin-top:40px;
+      text-decoration:none;
+      background:white;
+      color:#222;
+      padding:14px 28px;
+      border-radius:999px;
+      font-weight:bold;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <h1>Grazie ❤️</h1>
-  <p>La tua conferma è stata ricevuta!</p>
+  <div class="background"></div>
+  <div class="overlay"></div>
 
-  <a href="index.html">Torna al sito</a>
+  <div class="box">
+
+    <h1>Grazie ❤️</h1>
+
+    <p>
+      La vostra conferma è stata ricevuta.<br>
+      Non vediamo l’ora di festeggiare insieme.
+    </p>
+
+    <a href="index.html">
+      Torna al sito
+    </a>
+
+  </div>
 
 </body>
 </html>
