@@ -53,6 +53,8 @@
       background:rgba(0,0,0,.10);
     }
 
+    /* DESKTOP */
+
     .photo1{
       background-image:url('images/foto1.jpg');
       width:34vw;
@@ -131,6 +133,7 @@
     }
 
     @keyframes photoAppear{
+
       from{
         opacity:0;
         transform:scale(.9) translateY(30px);
@@ -139,6 +142,7 @@
       to{
         opacity:1;
       }
+
     }
 
     .overlay{
@@ -149,6 +153,7 @@
     }
 
     /* STRUTTURA */
+
     .wrapper{
       width:100%;
     }
@@ -178,6 +183,7 @@
     }
 
     @keyframes fadeIn{
+
       from{
         opacity:0;
         transform:translateY(20px);
@@ -187,6 +193,7 @@
         opacity:1;
         transform:translateY(0);
       }
+
     }
 
     h1{
@@ -278,6 +285,7 @@
     }
 
     /* FORM */
+
     form{
       max-width:700px;
       margin:auto;
@@ -337,6 +345,8 @@
       font-size:14px;
     }
 
+    /* MOBILE */
+
     @media(max-width:900px){
 
       .grid{
@@ -351,15 +361,60 @@
         padding:30px;
       }
 
-      .photo1,
-      .photo2,
-      .photo3,
-      .photo4,
-      .photo5,
-      .photo6,
+      .photo1{
+        width:72vw;
+        height:24vh;
+        top:3%;
+        left:-18%;
+        transform:rotate(-5deg);
+      }
+
+      .photo2{
+        width:70vw;
+        height:24vh;
+        top:8%;
+        right:-18%;
+        transform:rotate(5deg);
+      }
+
+      .photo3{
+        width:70vw;
+        height:24vh;
+        top:28%;
+        left:-20%;
+        transform:rotate(4deg);
+      }
+
+      .photo4{
+        width:70vw;
+        height:24vh;
+        top:33%;
+        right:-20%;
+        transform:rotate(-4deg);
+      }
+
+      .photo5{
+        width:74vw;
+        height:24vh;
+        top:54%;
+        left:-18%;
+        transform:rotate(-3deg);
+      }
+
+      .photo6{
+        width:70vw;
+        height:24vh;
+        top:59%;
+        right:-18%;
+        transform:rotate(3deg);
+      }
+
       .photo7{
-        width:56vw;
-        height:28vh;
+        width:75vw;
+        height:24vh;
+        bottom:2%;
+        left:12%;
+        transform:rotate(-2deg);
       }
 
     }
