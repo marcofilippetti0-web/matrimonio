@@ -29,12 +29,13 @@
     .background{
       position:fixed;
       inset:0;
-      background-image:url('images/foto.jpg');
+      background-image:url('images/foto1.jpg');
       background-size:cover;
       background-position:center calc(50% - 1cm);
       z-index:-3;
       transform:scale(1.05);
       animation:zoom 18s ease-in-out infinite alternate;
+      transition:opacity 1.5s ease-in-out;
     }
 
     @keyframes zoom{
@@ -266,7 +267,7 @@
 <body>
 
   <!-- SFONDO -->
-  <div class="background"></div>
+  <div class="background" id="background"></div>
   <div class="overlay"></div>
 
   <div class="wrapper">
@@ -451,6 +452,41 @@
         ? 'block'
         : 'none';
     }
+
+    const background =
+      document.getElementById("background");
+
+    const images = [
+      "images/foto1.jpg",
+      "images/foto2.jpg",
+      "images/foto3.jpg",
+      "images/foto4.jpg",
+      "images/foto5.jpg",
+      "images/foto6.jpg",
+      "images/foto7.jpg"
+    ];
+
+    let currentImage = 0;
+
+    function changeBackground(){
+
+      currentImage =
+        (currentImage + 1) % images.length;
+
+      background.style.opacity = 0;
+
+      setTimeout(() => {
+
+        background.style.backgroundImage =
+          `url('${images[currentImage]}')`;
+
+        background.style.opacity = 1;
+
+      }, 800);
+
+    }
+
+    setInterval(changeBackground, 5000);
 
     function updateCountdown(){
 
