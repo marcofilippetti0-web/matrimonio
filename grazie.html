@@ -15,7 +15,7 @@
     }
 
     body{
-      height:100vh;
+      min-height:100vh;
       display:flex;
       justify-content:center;
       align-items:center;
@@ -23,59 +23,163 @@
       font-family:Arial, sans-serif;
       color:white;
       overflow:hidden;
+      background:#050505;
+      padding:20px;
     }
 
-    /* FOTO SFONDO */
-    .background{
+    /* COLLAGE */
+    .collage{
       position:fixed;
       inset:0;
-      background-image:url('images/foto.jpg');
-      background-size:cover;
-      background-position:center calc(50% - 1cm);
+      overflow:hidden;
       z-index:-3;
-      transform:scale(1.05);
-      animation:zoomBg 15s ease-in-out infinite alternate;
+      background:#050505;
     }
 
-    @keyframes zoomBg{
+    .collage-photo{
+      position:absolute;
+      background-size:cover;
+      background-position:center;
+      border-radius:26px;
+      opacity:0;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+      animation:photoAppear 1.8s ease forwards;
+      border:4px solid rgba(255,255,255,.08);
+    }
+
+    .collage-photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:26px;
+      background:rgba(0,0,0,.10);
+    }
+
+    /* DESKTOP */
+
+    .photo1{
+      background-image:url('images/foto1.jpg');
+      width:34vw;
+      height:44vh;
+      top:4%;
+      left:8%;
+      transform:rotate(-8deg);
+      z-index:1;
+      animation-delay:.2s;
+    }
+
+    .photo2{
+      background-image:url('images/foto2.jpg');
+      width:30vw;
+      height:40vh;
+      top:10%;
+      left:30%;
+      transform:rotate(7deg);
+      z-index:2;
+      animation-delay:1s;
+    }
+
+    .photo3{
+      background-image:url('images/foto3.jpg');
+      width:28vw;
+      height:38vh;
+      top:20%;
+      right:8%;
+      transform:rotate(-5deg);
+      z-index:1;
+      animation-delay:1.8s;
+    }
+
+    .photo4{
+      background-image:url('images/foto4.jpg');
+      width:30vw;
+      height:40vh;
+      top:42%;
+      left:12%;
+      transform:rotate(6deg);
+      z-index:3;
+      animation-delay:2.6s;
+    }
+
+    .photo5{
+      background-image:url('images/foto5.jpg');
+      width:34vw;
+      height:42vh;
+      top:45%;
+      left:34%;
+      transform:rotate(-4deg);
+      z-index:2;
+      animation-delay:3.4s;
+    }
+
+    .photo6{
+      background-image:url('images/foto6.jpg');
+      width:26vw;
+      height:34vh;
+      bottom:6%;
+      right:18%;
+      transform:rotate(8deg);
+      z-index:4;
+      animation-delay:4.2s;
+    }
+
+    .photo7{
+      background-image:url('images/foto7.jpg');
+      width:24vw;
+      height:30vh;
+      bottom:8%;
+      left:4%;
+      transform:rotate(-10deg);
+      z-index:5;
+      animation-delay:5s;
+    }
+
+    @keyframes photoAppear{
+
       from{
-        transform:scale(1.05);
+        opacity:0;
+        transform:scale(.9) translateY(30px);
       }
+
       to{
-        transform:scale(1.12);
+        opacity:1;
       }
+
     }
 
-    /* OVERLAY */
     .overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.45);
+      background:rgba(0,0,0,.55);
       z-index:-2;
     }
 
     /* CARD */
+
     .box{
       background:rgba(255,255,255,.12);
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(12px);
       border:1px solid rgba(255,255,255,.15);
       border-radius:30px;
       padding:50px;
       max-width:700px;
-      width:90%;
+      width:100%;
+      box-shadow:0 10px 40px rgba(0,0,0,.28);
       animation:fadeIn 1.5s ease;
-      box-shadow:0 10px 40px rgba(0,0,0,.25);
     }
 
     @keyframes fadeIn{
+
       from{
         opacity:0;
         transform:translateY(20px);
       }
+
       to{
         opacity:1;
         transform:translateY(0);
       }
+
     }
 
     h1{
@@ -113,7 +217,9 @@
       background:#f3f3f3;
     }
 
-    @media(max-width:768px){
+    /* MOBILE */
+
+    @media(max-width:900px){
 
       h1{
         font-size:42px;
@@ -127,6 +233,62 @@
         font-size:18px;
       }
 
+      .photo1{
+        width:72vw;
+        height:24vh;
+        top:3%;
+        left:-18%;
+        transform:rotate(-5deg);
+      }
+
+      .photo2{
+        width:70vw;
+        height:24vh;
+        top:8%;
+        right:-18%;
+        transform:rotate(5deg);
+      }
+
+      .photo3{
+        width:70vw;
+        height:24vh;
+        top:28%;
+        left:-20%;
+        transform:rotate(4deg);
+      }
+
+      .photo4{
+        width:70vw;
+        height:24vh;
+        top:33%;
+        right:-20%;
+        transform:rotate(-4deg);
+      }
+
+      .photo5{
+        width:74vw;
+        height:24vh;
+        top:54%;
+        left:-18%;
+        transform:rotate(-3deg);
+      }
+
+      .photo6{
+        width:70vw;
+        height:24vh;
+        top:59%;
+        right:-18%;
+        transform:rotate(3deg);
+      }
+
+      .photo7{
+        width:75vw;
+        height:24vh;
+        bottom:2%;
+        left:12%;
+        transform:rotate(-2deg);
+      }
+
     }
 
   </style>
@@ -134,11 +296,22 @@
 
 <body>
 
-  <!-- SFONDO -->
-  <div class="background"></div>
+  <!-- COLLAGE -->
+  <div class="collage">
+
+    <div class="collage-photo photo1"></div>
+    <div class="collage-photo photo2"></div>
+    <div class="collage-photo photo3"></div>
+    <div class="collage-photo photo4"></div>
+    <div class="collage-photo photo5"></div>
+    <div class="collage-photo photo6"></div>
+    <div class="collage-photo photo7"></div>
+
+  </div>
+
   <div class="overlay"></div>
 
-  <!-- CONTENUTO -->
+  <!-- CARD -->
   <div class="box">
 
     <h1>Grazie ❤️</h1>
@@ -158,7 +331,7 @@
 
   </div>
 
-  <!-- REDIRECT AUTOMATICO -->
+  <!-- REDIRECT -->
   <script>
 
     setTimeout(function(){
