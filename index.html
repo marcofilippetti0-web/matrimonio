@@ -7,7 +7,6 @@
   <title>Marco & Martina</title>
 
   <style>
-
     *{
       margin:0;
       padding:0;
@@ -25,8 +24,6 @@
       overflow-x:hidden;
     }
 
-    /* COLLAGE */
-
     .collage{
       position:fixed;
       inset:0;
@@ -41,9 +38,9 @@
       background-position:center;
       border-radius:26px;
       opacity:0;
-      box-shadow:0 20px 60px rgba(0,0,0,.35);
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
       animation:photoAppear 1.8s ease forwards;
-      border:3px solid rgba(255,255,255,.08);
+      border:2px solid rgba(255,255,255,.06);
     }
 
     .collage-photo::after{
@@ -51,10 +48,8 @@
       position:absolute;
       inset:0;
       border-radius:26px;
-      background:rgba(0,0,0,.03);
+      background:rgba(0,0,0,.02);
     }
-
-    /* DESKTOP - NO SOVRAPPOSIZIONE */
 
     .photo1{
       background-image:url('images/foto1.jpg');
@@ -127,7 +122,6 @@
     }
 
     @keyframes photoAppear{
-
       from{
         opacity:0;
         transform:scale(.9) translateY(30px);
@@ -136,19 +130,14 @@
       to{
         opacity:1;
       }
-
     }
-
-    /* OVERLAY */
 
     .overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.28);
+      background:rgba(0,0,0,.18);
       z-index:-2;
     }
-
-    /* STRUTTURA */
 
     .wrapper{
       width:100%;
@@ -162,15 +151,13 @@
       padding:40px 20px;
     }
 
-    /* CARD */
-
     .glass{
       width:100%;
       max-width:1100px;
-      background:rgba(0,0,0,.18);
+      background:rgba(0,0,0,.08);
       backdrop-filter:none;
       -webkit-backdrop-filter:none;
-      border:1px solid rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.12);
       border-radius:30px;
       padding:50px;
       box-shadow:none;
@@ -182,7 +169,6 @@
     }
 
     @keyframes fadeIn{
-
       from{
         opacity:0;
         transform:translateY(20px);
@@ -192,7 +178,6 @@
         opacity:1;
         transform:translateY(0);
       }
-
     }
 
     h1{
@@ -214,8 +199,8 @@
       display:inline-block;
       padding:14px 26px;
       border-radius:999px;
-      background:rgba(0,0,0,.22);
-      border:1px solid rgba(255,255,255,.18);
+      background:rgba(0,0,0,.16);
+      border:1px solid rgba(255,255,255,.14);
       font-size:18px;
       letter-spacing:1px;
     }
@@ -227,8 +212,6 @@
       font-size:19px;
       opacity:.95;
     }
-
-    /* BOTTONI */
 
     .hero-buttons{
       display:flex;
@@ -254,16 +237,14 @@
     }
 
     .secondary-btn{
-      background:rgba(0,0,0,.25);
+      background:rgba(0,0,0,.20);
       color:white;
-      border:1px solid rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.18);
     }
 
     .secondary-btn:hover{
       background:rgba(255,255,255,.12);
     }
-
-    /* GRID */
 
     .grid{
       display:grid;
@@ -272,10 +253,10 @@
     }
 
     .mini-card{
-      background:rgba(0,0,0,.20);
+      background:rgba(0,0,0,.12);
       border-radius:24px;
       padding:30px;
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.10);
     }
 
     h2{
@@ -302,8 +283,6 @@
       border-radius:20px;
       margin-top:20px;
     }
-
-    /* FORM */
 
     form{
       max-width:700px;
@@ -364,10 +343,7 @@
       font-size:14px;
     }
 
-    /* MOBILE */
-
     @media(max-width:900px){
-
       .grid{
         grid-template-columns:1fr;
       }
@@ -381,70 +357,65 @@
       }
 
       .photo1{
-  width:42vw;
-  height:16vh;
-  top:3%;
-  left:4%;
-}
+        width:42vw;
+        height:16vh;
+        top:3%;
+        left:4%;
+      }
 
-.photo2{
-  width:42vw;
-  height:16vh;
-  top:5%;
-  right:4%;
-}
+      .photo2{
+        width:42vw;
+        height:16vh;
+        top:5%;
+        right:4%;
+      }
 
-.photo3{
-  width:42vw;
-  height:16vh;
-  top:24%;
-  left:4%;
-}
+      .photo3{
+        width:42vw;
+        height:16vh;
+        top:24%;
+        left:4%;
+      }
 
-.photo4{
-  width:42vw;
-  height:16vh;
-  top:26%;
-  right:4%;
-}
+      .photo4{
+        width:42vw;
+        height:16vh;
+        top:26%;
+        right:4%;
+      }
 
-.photo5{
-  width:42vw;
-  height:16vh;
-  top:47%;
-  left:4%;
-}
+      .photo5{
+        width:42vw;
+        height:16vh;
+        top:47%;
+        left:4%;
+      }
 
-.photo6{
-  width:42vw;
-  height:16vh;
-  top:49%;
-  right:4%;
-}
+      .photo6{
+        width:42vw;
+        height:16vh;
+        top:49%;
+        right:4%;
+      }
 
-.photo7{
-  width:60vw;
-  height:14vh;
-  bottom:4%;
-  left:20%;
-}
+      .photo7{
+        width:60vw;
+        height:14vh;
+        bottom:4%;
+        left:20%;
+      }
 
       .hero-buttons{
         flex-direction:column;
         align-items:center;
       }
-
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- COLLAGE -->
-
   <div class="collage">
-
     <div class="collage-photo photo1"></div>
     <div class="collage-photo photo2"></div>
     <div class="collage-photo photo3"></div>
@@ -452,17 +423,13 @@
     <div class="collage-photo photo5"></div>
     <div class="collage-photo photo6"></div>
     <div class="collage-photo photo7"></div>
-
   </div>
 
   <div class="overlay"></div>
 
   <div class="wrapper">
 
-    <!-- HERO -->
-
     <section class="panel">
-
       <div class="glass hero">
 
         <h1>Marco & Martina</h1>
@@ -481,7 +448,6 @@
         </p>
 
         <div class="hero-buttons">
-
           <a href="#rsvp" class="hero-btn">
             ❤️ Conferma la tua presenza
           </a>
@@ -489,17 +455,12 @@
           <a href="#luoghi" class="hero-btn secondary-btn">
             📍 Scopri i luoghi della giornata
           </a>
-
         </div>
 
       </div>
-
     </section>
 
-    <!-- RSVP -->
-
     <section class="panel" id="rsvp">
-
       <div class="glass">
 
         <h2>Conferma Partecipazione</h2>
@@ -507,7 +468,6 @@
         <form id="rsvpForm" action="https://formspree.io/f/mwvaovek" method="POST">
 
           <label>Nome e Cognome</label>
-
           <input type="text" name="nome" required>
 
           <label>Parteciperai?</label>
@@ -526,12 +486,7 @@
           <div id="guestSection" class="hidden">
 
             <label>Quanti sarete?</label>
-
-            <input
-              type="number"
-              name="numero_persone"
-              min="1"
-            >
+            <input type="number" name="numero_persone" min="1">
 
             <label>Allergie o intolleranze?</label>
 
@@ -545,15 +500,8 @@
             </select>
 
             <div id="allergyDetails" class="hidden">
-
-              <label>
-                Specifica eventuali allergie/intolleranze
-              </label>
-
-              <textarea
-                name="dettagli_allergie"
-              ></textarea>
-
+              <label>Specifica eventuali allergie/intolleranze</label>
+              <textarea name="dettagli_allergie"></textarea>
             </div>
 
           </div>
@@ -565,13 +513,9 @@
         </form>
 
       </div>
-
     </section>
 
-    <!-- LUOGHI -->
-
     <section class="panel" id="luoghi">
-
       <div class="glass">
 
         <h2>La Nostra Giornata</h2>
@@ -579,9 +523,7 @@
         <div class="grid">
 
           <div class="mini-card">
-
             <h3>⛪ Cerimonia</h3>
-
             <p>
               Chiesa di Falconara Alta<br>
               Ore 15:00
@@ -591,13 +533,10 @@
               src="https://www.google.com/maps?q=Parrocchia+Visitazione+della+Beata+Vergine+Maria+Falconara+Alta&output=embed"
               loading="lazy">
             </iframe>
-
           </div>
 
           <div class="mini-card">
-
             <h3>🏛 Ricevimento</h3>
-
             <p>
               Villa Gazzani<br>
               Aperitivo, cena e festa
@@ -607,13 +546,11 @@
               src="https://www.google.com/maps?q=Villa+Gazzani&output=embed"
               loading="lazy">
             </iframe>
-
           </div>
 
         </div>
 
       </div>
-
     </section>
 
     <div class="footer">
@@ -623,130 +560,73 @@
   </div>
 
   <script>
-
     function toggleGuests(){
-
-      const presenza =
-        document.getElementById('presenza').value;
-
+      const presenza = document.getElementById('presenza').value;
       document.getElementById('guestSection').style.display =
-        presenza === 'si'
-        ? 'block'
-        : 'none';
+        presenza === 'si' ? 'block' : 'none';
     }
 
     function toggleAllergies(){
-
-      const allergie =
-        document.getElementById('allergie').value;
-
+      const allergie = document.getElementById('allergie').value;
       document.getElementById('allergyDetails').style.display =
-        allergie === 'si'
-        ? 'block'
-        : 'none';
+        allergie === 'si' ? 'block' : 'none';
     }
 
     function updateCountdown(){
-
-      const weddingDate =
-        new Date("2026-09-13T15:00:00").getTime();
-
-      const now =
-        new Date().getTime();
-
-      const distance =
-        weddingDate - now;
-
-      const countdown =
-        document.getElementById("countdown");
+      const weddingDate = new Date("2026-09-13T15:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+      const countdown = document.getElementById("countdown");
 
       if(distance <= 0){
-
-        countdown.innerHTML =
-          "Oggi è il grande giorno ❤️";
-
+        countdown.innerHTML = "Oggi è il grande giorno ❤️";
         return;
       }
 
-      const days =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
-
-      const hours =
-        Math.floor((distance / (1000 * 60 * 60)) % 24);
-
-      const minutes =
-        Math.floor((distance / (1000 * 60)) % 60);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
 
       countdown.innerHTML =
-        "Mancano " +
-        days +
-        " giorni, " +
-        hours +
-        " ore e " +
-        minutes +
-        " minuti";
+        "Mancano " + days + " giorni, " + hours + " ore e " + minutes + " minuti";
     }
 
     updateCountdown();
-
     setInterval(updateCountdown, 60000);
 
     document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
-
       e.preventDefault();
 
       const form = e.target;
-
       const data = new FormData(form);
-
-      const button =
-        form.querySelector("button");
+      const button = form.querySelector("button");
 
       button.disabled = true;
-
-      button.textContent =
-        "Invio in corso...";
+      button.textContent = "Invio in corso...";
 
       try {
-
         const response = await fetch(form.action, {
-
           method: "POST",
           body: data,
-
           headers: {
             "Accept": "application/json"
           }
-
         });
 
         if (response.ok) {
-
           window.location.href =
             "https://marcofilippetti0-web.github.io/matrimonio/grazie.html?v=2";
-
         } else {
-
           alert("Si è verificato un errore. Riprova più tardi.");
-
           button.disabled = false;
-
-          button.textContent =
-            "Invia Conferma";
+          button.textContent = "Invia Conferma";
         }
-
       } catch (error) {
-
         alert("Errore di connessione. Riprova più tardi.");
-
         button.disabled = false;
-
-        button.textContent =
-          "Invia Conferma";
+        button.textContent = "Invia Conferma";
       }
-
     });
-
   </script>
 
 </body>
