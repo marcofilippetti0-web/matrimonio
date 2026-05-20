@@ -52,8 +52,6 @@
       background:rgba(0,0,0,.02);
     }
 
-    /* DESKTOP */
-
     .photo1{
       background-image:url('images/foto1.jpg');
       width:24vw;
@@ -344,8 +342,6 @@
       font-size:14px;
     }
 
-    /* MOBILE */
-
     @media(max-width:900px){
 
       .grid{
@@ -597,6 +593,25 @@
   </div>
 
   <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    window.addEventListener('pageshow', function () {
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 50);
+    });
+
+    window.addEventListener('load', function () {
+      if (window.location.hash) {
+        history.replaceState(null, document.title, window.location.pathname);
+      }
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
 
     function toggleGuests(){
 
@@ -716,7 +731,6 @@
       }
 
     });
-
   </script>
 
 </body>
