@@ -230,9 +230,18 @@
       opacity:.95;
     }
 
+    /* BOTTONI */
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:50px;
+    }
+
     .hero-btn{
       display:inline-block;
-      margin-top:50px;
       padding:16px 32px;
       border-radius:999px;
       background:white;
@@ -244,6 +253,16 @@
 
     .hero-btn:hover{
       transform:translateY(-2px);
+    }
+
+    .secondary-btn{
+      background:rgba(255,255,255,.15);
+      color:white;
+      border:1px solid rgba(255,255,255,.25);
+    }
+
+    .secondary-btn:hover{
+      background:rgba(255,255,255,.22);
     }
 
     .grid{
@@ -417,6 +436,11 @@
         transform:rotate(-2deg);
       }
 
+      .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+      }
+
     }
 
   </style>
@@ -461,9 +485,17 @@
           il giorno più bello della nostra vita.
         </p>
 
-        <a href="#rsvp" class="hero-btn">
-          Conferma la tua presenza
-        </a>
+        <div class="hero-buttons">
+
+          <a href="#rsvp" class="hero-btn">
+            ❤️ Conferma la tua presenza
+          </a>
+
+          <a href="#luoghi" class="hero-btn secondary-btn">
+            📍 Scopri i luoghi della giornata
+          </a>
+
+        </div>
 
       </div>
 
@@ -540,8 +572,8 @@
 
     </section>
 
-    <!-- EVENTO -->
-    <section class="panel">
+    <!-- LUOGHI -->
+    <section class="panel" id="luoghi">
 
       <div class="glass">
 
