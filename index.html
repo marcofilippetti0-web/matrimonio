@@ -7,6 +7,7 @@
   <title>Marco & Martina</title>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -50,6 +51,8 @@
       border-radius:26px;
       background:rgba(0,0,0,.02);
     }
+
+    /* DESKTOP */
 
     .photo1{
       background-image:url('images/foto1.jpg');
@@ -155,8 +158,6 @@
       width:100%;
       max-width:1100px;
       background:rgba(0,0,0,.08);
-      backdrop-filter:none;
-      -webkit-backdrop-filter:none;
       border:1px solid rgba(255,255,255,.12);
       border-radius:30px;
       padding:50px;
@@ -343,7 +344,10 @@
       font-size:14px;
     }
 
+    /* MOBILE */
+
     @media(max-width:900px){
+
       .grid{
         grid-template-columns:1fr;
       }
@@ -361,13 +365,17 @@
         height:16vh;
         top:3%;
         left:4%;
+        right:auto;
+        transform:rotate(-4deg);
       }
 
       .photo2{
         width:42vw;
         height:16vh;
         top:5%;
+        left:auto;
         right:4%;
+        transform:rotate(4deg);
       }
 
       .photo3{
@@ -375,13 +383,17 @@
         height:16vh;
         top:24%;
         left:4%;
+        right:auto;
+        transform:rotate(-3deg);
       }
 
       .photo4{
         width:42vw;
         height:16vh;
         top:26%;
+        left:auto;
         right:4%;
+        transform:rotate(3deg);
       }
 
       .photo5{
@@ -389,20 +401,27 @@
         height:16vh;
         top:47%;
         left:4%;
+        right:auto;
+        transform:rotate(-3deg);
       }
 
       .photo6{
         width:42vw;
         height:16vh;
         top:49%;
+        left:auto;
         right:4%;
+        transform:rotate(3deg);
       }
 
       .photo7{
         width:60vw;
         height:14vh;
+        top:auto;
         bottom:4%;
         left:20%;
+        right:auto;
+        transform:rotate(-2deg);
       }
 
       .hero-buttons{
@@ -410,6 +429,7 @@
         align-items:center;
       }
     }
+
   </style>
 </head>
 
@@ -448,6 +468,7 @@
         </p>
 
         <div class="hero-buttons">
+
           <a href="#rsvp" class="hero-btn">
             ❤️ Conferma la tua presenza
           </a>
@@ -455,12 +476,14 @@
           <a href="#luoghi" class="hero-btn secondary-btn">
             📍 Scopri i luoghi della giornata
           </a>
+
         </div>
 
       </div>
     </section>
 
     <section class="panel" id="rsvp">
+
       <div class="glass">
 
         <h2>Conferma Partecipazione</h2>
@@ -468,6 +491,7 @@
         <form id="rsvpForm" action="https://formspree.io/f/mwvaovek" method="POST">
 
           <label>Nome e Cognome</label>
+
           <input type="text" name="nome" required>
 
           <label>Parteciperai?</label>
@@ -486,6 +510,7 @@
           <div id="guestSection" class="hidden">
 
             <label>Quanti sarete?</label>
+
             <input type="number" name="numero_persone" min="1">
 
             <label>Allergie o intolleranze?</label>
@@ -500,8 +525,11 @@
             </select>
 
             <div id="allergyDetails" class="hidden">
+
               <label>Specifica eventuali allergie/intolleranze</label>
+
               <textarea name="dettagli_allergie"></textarea>
+
             </div>
 
           </div>
@@ -513,9 +541,11 @@
         </form>
 
       </div>
+
     </section>
 
     <section class="panel" id="luoghi">
+
       <div class="glass">
 
         <h2>La Nostra Giornata</h2>
@@ -523,7 +553,9 @@
         <div class="grid">
 
           <div class="mini-card">
+
             <h3>⛪ Cerimonia</h3>
+
             <p>
               Chiesa di Falconara Alta<br>
               Ore 15:00
@@ -533,10 +565,13 @@
               src="https://www.google.com/maps?q=Parrocchia+Visitazione+della+Beata+Vergine+Maria+Falconara+Alta&output=embed"
               loading="lazy">
             </iframe>
+
           </div>
 
           <div class="mini-card">
+
             <h3>🏛 Ricevimento</h3>
+
             <p>
               Villa Gazzani<br>
               Aperitivo, cena e festa
@@ -546,11 +581,13 @@
               src="https://www.google.com/maps?q=Villa+Gazzani&output=embed"
               loading="lazy">
             </iframe>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
     <div class="footer">
@@ -560,73 +597,126 @@
   </div>
 
   <script>
+
     function toggleGuests(){
-      const presenza = document.getElementById('presenza').value;
+
+      const presenza =
+        document.getElementById('presenza').value;
+
       document.getElementById('guestSection').style.display =
         presenza === 'si' ? 'block' : 'none';
     }
 
     function toggleAllergies(){
-      const allergie = document.getElementById('allergie').value;
+
+      const allergie =
+        document.getElementById('allergie').value;
+
       document.getElementById('allergyDetails').style.display =
         allergie === 'si' ? 'block' : 'none';
     }
 
     function updateCountdown(){
-      const weddingDate = new Date("2026-09-13T15:00:00").getTime();
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-      const countdown = document.getElementById("countdown");
+
+      const weddingDate =
+        new Date("2026-09-13T15:00:00").getTime();
+
+      const now =
+        new Date().getTime();
+
+      const distance =
+        weddingDate - now;
+
+      const countdown =
+        document.getElementById("countdown");
 
       if(distance <= 0){
-        countdown.innerHTML = "Oggi è il grande giorno ❤️";
+
+        countdown.innerHTML =
+          "Oggi è il grande giorno ❤️";
+
         return;
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours =
+        Math.floor((distance / (1000 * 60 * 60)) % 24);
+
+      const minutes =
+        Math.floor((distance / (1000 * 60)) % 60);
 
       countdown.innerHTML =
-        "Mancano " + days + " giorni, " + hours + " ore e " + minutes + " minuti";
+        "Mancano " +
+        days +
+        " giorni, " +
+        hours +
+        " ore e " +
+        minutes +
+        " minuti";
     }
 
     updateCountdown();
+
     setInterval(updateCountdown, 60000);
 
     document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
+
       e.preventDefault();
 
       const form = e.target;
+
       const data = new FormData(form);
-      const button = form.querySelector("button");
+
+      const button =
+        form.querySelector("button");
 
       button.disabled = true;
-      button.textContent = "Invio in corso...";
+
+      button.textContent =
+        "Invio in corso...";
 
       try {
+
         const response = await fetch(form.action, {
+
           method: "POST",
           body: data,
+
           headers: {
             "Accept": "application/json"
           }
+
         });
 
         if (response.ok) {
+
           window.location.href =
             "https://marcofilippetti0-web.github.io/matrimonio/grazie.html?v=2";
+
         } else {
+
           alert("Si è verificato un errore. Riprova più tardi.");
+
           button.disabled = false;
-          button.textContent = "Invia Conferma";
+
+          button.textContent =
+            "Invia Conferma";
         }
+
       } catch (error) {
+
         alert("Errore di connessione. Riprova più tardi.");
+
         button.disabled = false;
-        button.textContent = "Invia Conferma";
+
+        button.textContent =
+          "Invia Conferma";
       }
+
     });
+
   </script>
 
 </body>
