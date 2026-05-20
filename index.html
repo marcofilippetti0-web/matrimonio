@@ -26,6 +26,7 @@
     }
 
     /* COLLAGE */
+
     .collage{
       position:fixed;
       inset:0;
@@ -40,9 +41,9 @@
       background-position:center;
       border-radius:26px;
       opacity:0;
-      box-shadow:0 20px 60px rgba(0,0,0,.45);
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
       animation:photoAppear 1.8s ease forwards;
-      border:4px solid rgba(255,255,255,.08);
+      border:3px solid rgba(255,255,255,.08);
     }
 
     .collage-photo::after{
@@ -50,7 +51,7 @@
       position:absolute;
       inset:0;
       border-radius:26px;
-      background:rgba(0,0,0,.10);
+      background:rgba(0,0,0,.03);
     }
 
     /* DESKTOP */
@@ -145,10 +146,12 @@
 
     }
 
+    /* OVERLAY */
+
     .overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.52);
+      background:rgba(0,0,0,.28);
       z-index:-2;
     }
 
@@ -166,16 +169,18 @@
       padding:40px 20px;
     }
 
+    /* CARD SUPER TRASPARENTE */
+
     .glass{
-  width:100%;
-  max-width:1100px;
-  background:rgba(0,0,0,.02);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  border:1px solid rgba(255,255,255,.10);
+      width:100%;
+      max-width:1100px;
+      background:rgba(0,0,0,.18);
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
+      border:1px solid rgba(255,255,255,.18);
       border-radius:30px;
       padding:50px;
-      box-shadow:0 10px 40px rgba(0,0,0,.28);
+      box-shadow:none;
     }
 
     .hero{
@@ -216,9 +221,8 @@
       display:inline-block;
       padding:14px 26px;
       border-radius:999px;
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.25);
-      backdrop-filter:blur(8px);
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.18);
       font-size:18px;
       letter-spacing:1px;
     }
@@ -257,14 +261,16 @@
     }
 
     .secondary-btn{
-      background:rgba(255,255,255,.15);
+      background:rgba(0,0,0,.25);
       color:white;
-      border:1px solid rgba(255,255,255,.25);
+      border:1px solid rgba(255,255,255,.22);
     }
 
     .secondary-btn:hover{
-      background:rgba(255,255,255,.22);
+      background:rgba(255,255,255,.12);
     }
+
+    /* GRID */
 
     .grid{
       display:grid;
@@ -273,10 +279,10 @@
     }
 
     .mini-card{
-      background:rgba(255,255,255,.08);
+      background:rgba(0,0,0,.20);
       border-radius:24px;
       padding:30px;
-      border:1px solid rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.14);
     }
 
     h2{
@@ -450,6 +456,7 @@
 <body>
 
   <!-- COLLAGE -->
+
   <div class="collage">
 
     <div class="collage-photo photo1"></div>
@@ -467,6 +474,7 @@
   <div class="wrapper">
 
     <!-- HERO -->
+
     <section class="panel">
 
       <div class="glass hero">
@@ -503,6 +511,7 @@
     </section>
 
     <!-- RSVP -->
+
     <section class="panel" id="rsvp">
 
       <div class="glass">
@@ -574,6 +583,7 @@
     </section>
 
     <!-- LUOGHI -->
+
     <section class="panel" id="luoghi">
 
       <div class="glass">
