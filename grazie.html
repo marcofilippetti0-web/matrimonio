@@ -7,7 +7,6 @@
   <title>Grazie ❤️</title>
 
   <style>
-
     *{
       margin:0;
       padding:0;
@@ -26,8 +25,6 @@
       background:#050505;
       padding:20px;
     }
-
-    /* COLLAGE */
 
     .collage{
       position:fixed;
@@ -129,7 +126,6 @@
     }
 
     @keyframes photoAppear{
-
       from{
         opacity:0;
         transform:scale(.9) translateY(30px);
@@ -138,10 +134,7 @@
       to{
         opacity:1;
       }
-
     }
-
-    /* OVERLAY */
 
     .overlay{
       position:fixed;
@@ -149,8 +142,6 @@
       background:rgba(0,0,0,.18);
       z-index:-2;
     }
-
-    /* BOX SUPER TRASPARENTE */
 
     .box{
       width:100%;
@@ -164,7 +155,6 @@
     }
 
     @keyframes fadeIn{
-
       from{
         opacity:0;
         transform:translateY(20px);
@@ -174,7 +164,6 @@
         opacity:1;
         transform:translateY(0);
       }
-
     }
 
     h1{
@@ -234,13 +223,17 @@
         height:16vh;
         top:3%;
         left:4%;
+        right:auto;
+        transform:rotate(-4deg);
       }
 
       .photo2{
         width:42vw;
         height:16vh;
         top:5%;
+        left:auto;
         right:4%;
+        transform:rotate(4deg);
       }
 
       .photo3{
@@ -248,13 +241,17 @@
         height:16vh;
         top:24%;
         left:4%;
+        right:auto;
+        transform:rotate(-3deg);
       }
 
       .photo4{
         width:42vw;
         height:16vh;
         top:26%;
+        left:auto;
         right:4%;
+        transform:rotate(3deg);
       }
 
       .photo5{
@@ -262,22 +259,28 @@
         height:16vh;
         top:47%;
         left:4%;
+        right:auto;
+        transform:rotate(-3deg);
       }
 
       .photo6{
         width:42vw;
         height:16vh;
         top:49%;
+        left:auto;
         right:4%;
+        transform:rotate(3deg);
       }
 
       .photo7{
         width:60vw;
         height:14vh;
+        top:auto;
         bottom:4%;
         left:20%;
+        right:auto;
+        transform:rotate(-2deg);
       }
-
     }
 
   </style>
@@ -285,10 +288,7 @@
 
 <body>
 
-  <!-- COLLAGE -->
-
   <div class="collage">
-
     <div class="collage-photo photo1"></div>
     <div class="collage-photo photo2"></div>
     <div class="collage-photo photo3"></div>
@@ -296,12 +296,9 @@
     <div class="collage-photo photo5"></div>
     <div class="collage-photo photo6"></div>
     <div class="collage-photo photo7"></div>
-
   </div>
 
   <div class="overlay"></div>
-
-  <!-- BOX -->
 
   <div class="box">
 
@@ -322,17 +319,11 @@
 
   </div>
 
-  <!-- REDIRECT -->
-
   <script>
-
     setTimeout(function(){
-
       window.location.href =
         "https://marcofilippetti0-web.github.io/matrimonio/";
-
     }, 10000);
-
   </script>
 
 </body>
