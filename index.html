@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Marco & Martina</title>
+  <title>Marco Filippetti & Martina Loccioni</title>
 
   <style>
 
@@ -112,6 +112,16 @@
       animation-delay:4.2s;
     }
 
+    .photo7{
+      background-image:url('images/foto7.jpg');
+      width:26vw;
+      height:20vh;
+      bottom:3%;
+      left:37%;
+      transform:rotate(-2deg);
+      animation-delay:5s;
+    }
+
     @keyframes photoAppear{
       from{
         opacity:0;
@@ -170,15 +180,13 @@
     }
 
     h1{
-      font-family:"Georgia", serif;
-      font-size:78px;
-      font-weight:400;
-      letter-spacing:2px;
-      margin-bottom:20px;
-      line-height:1.2;
-      text-shadow:0 5px 25px rgba(0,0,0,.35);
-      font-style:italic;
-    }
+  font-size:68px;
+  font-weight:300;
+  letter-spacing:4px;
+  margin-bottom:20px;
+  line-height:1.2;
+  text-shadow:0 5px 25px rgba(0,0,0,.35);
+}
 
     .date{
       font-size:24px;
@@ -342,10 +350,9 @@
       }
 
       h1{
-        font-size:48px;
-        line-height:1.25;
-        letter-spacing:1px;
-      }
+  font-size:38px;
+  line-height:1.3;
+}
 
       .glass{
         padding:30px;
@@ -405,6 +412,16 @@
         transform:rotate(3deg);
       }
 
+      .photo7{
+        width:60vw;
+        height:14vh;
+        top:auto;
+        bottom:4%;
+        left:20%;
+        right:auto;
+        transform:rotate(-2deg);
+      }
+
       .hero-buttons{
         flex-direction:column;
         align-items:center;
@@ -423,6 +440,7 @@
     <div class="collage-photo photo4"></div>
     <div class="collage-photo photo5"></div>
     <div class="collage-photo photo6"></div>
+    <div class="collage-photo photo7"></div>
   </div>
 
   <div class="overlay"></div>
@@ -433,12 +451,12 @@
       <div class="glass hero">
 
         <h1>
-          Marco
-          <br>
-          &
-          <br>
-          Martina
-        </h1>
+  Marco Filippetti
+  <br>
+  &
+  <br>
+  Martina Loccioni
+</h1>
 
         <div class="date">
           13 Settembre 2026
@@ -467,3 +485,261 @@
 
       </div>
     </section>
+
+    <section class="panel" id="rsvp">
+
+      <div class="glass">
+
+        <h2>Conferma Partecipazione</h2>
+
+        <form id="rsvpForm" action="https://formspree.io/f/mwvaovek" method="POST">
+
+          <label>Nome e Cognome</label>
+
+          <input type="text" name="nome" required>
+
+          <label>Parteciperai?</label>
+
+          <select
+            name="presenza"
+            id="presenza"
+            onchange="toggleGuests()"
+            required
+          >
+            <option value="">Seleziona</option>
+            <option value="si">Sì</option>
+            <option value="no">No</option>
+          </select>
+
+          <div id="guestSection" class="hidden">
+
+            <label>Quanti sarete?</label>
+
+            <input type="number" name="numero_persone" min="1">
+
+            <label>Allergie o intolleranze?</label>
+
+            <select
+              name="allergie"
+              id="allergie"
+              onchange="toggleAllergies()"
+            >
+              <option value="no">No</option>
+              <option value="si">Sì</option>
+            </select>
+
+            <div id="allergyDetails" class="hidden">
+
+              <label>Specifica eventuali allergie/intolleranze</label>
+
+              <textarea name="dettagli_allergie"></textarea>
+
+            </div>
+
+          </div>
+
+          <button type="submit">
+            Invia Conferma
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <section class="panel" id="luoghi">
+
+      <div class="glass">
+
+        <h2>La Nostra Giornata</h2>
+
+        <div class="grid">
+
+          <div class="mini-card">
+
+            <h3>⛪ Cerimonia</h3>
+
+            <p>
+              Chiesa di Falconara Alta<br>
+              Ore 15:00
+            </p>
+
+            <iframe
+              src="https://www.google.com/maps?q=Parrocchia+Visitazione+della+Beata+Vergine+Maria+Falconara+Alta&output=embed"
+              loading="lazy">
+            </iframe>
+
+          </div>
+
+          <div class="mini-card">
+
+            <h3>🏛 Ricevimento</h3>
+
+            <p>
+              Villa Gazzani<br>
+              Aperitivo, pranzo e festa
+            </p>
+
+            <iframe
+              src="https://www.google.com/maps?q=Villa+Gazzani&output=embed"
+              loading="lazy">
+            </iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="footer">
+      Marco & Martina ❤️
+    </div>
+
+  </div>
+
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    window.addEventListener('pageshow', function () {
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 50);
+    });
+
+    window.addEventListener('load', function () {
+      if (window.location.hash) {
+        history.replaceState(null, document.title, window.location.pathname);
+      }
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+
+    function toggleGuests(){
+
+      const presenza =
+        document.getElementById('presenza').value;
+
+      document.getElementById('guestSection').style.display =
+        presenza === 'si' ? 'block' : 'none';
+    }
+
+    function toggleAllergies(){
+
+      const allergie =
+        document.getElementById('allergie').value;
+
+      document.getElementById('allergyDetails').style.display =
+        allergie === 'si' ? 'block' : 'none';
+    }
+
+    function updateCountdown(){
+
+      const weddingDate =
+        new Date("2026-09-13T15:00:00").getTime();
+
+      const now =
+        new Date().getTime();
+
+      const distance =
+        weddingDate - now;
+
+      const countdown =
+        document.getElementById("countdown");
+
+      if(distance <= 0){
+
+        countdown.innerHTML =
+          "Oggi è il grande giorno ❤️";
+
+        return;
+      }
+
+      const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours =
+        Math.floor((distance / (1000 * 60 * 60)) % 24);
+
+      const minutes =
+        Math.floor((distance / (1000 * 60)) % 60);
+
+      countdown.innerHTML =
+        "Mancano " +
+        days +
+        " giorni, " +
+        hours +
+        " ore e " +
+        minutes +
+        " minuti";
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 60000);
+
+    document.getElementById("rsvpForm").addEventListener("submit", async function(e) {
+
+      e.preventDefault();
+
+      const form = e.target;
+
+      const data = new FormData(form);
+
+      const button =
+        form.querySelector("button");
+
+      button.disabled = true;
+
+      button.textContent =
+        "Invio in corso...";
+
+      try {
+
+        const response = await fetch(form.action, {
+
+          method: "POST",
+          body: data,
+
+          headers: {
+            "Accept": "application/json"
+          }
+
+        });
+
+        if (response.ok) {
+
+          window.location.href =
+            "https://marcofilippetti0-web.github.io/matrimonio/grazie.html?v=2";
+
+        } else {
+
+          alert("Si è verificato un errore. Riprova più tardi.");
+
+          button.disabled = false;
+
+          button.textContent =
+            "Invia Conferma";
+        }
+
+      } catch (error) {
+
+        alert("Errore di connessione. Riprova più tardi.");
+
+        button.disabled = false;
+
+        button.textContent =
+          "Invia Conferma";
+      }
+
+    });
+  </script>
+
+</body>
+</html>
